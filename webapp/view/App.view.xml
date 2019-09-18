@@ -1,0 +1,71 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" 
+    xmlns="sap.m" 
+    xmlns:core="sap.ui.core" 
+    xmlns:t="sap.ui.table" 
+    xmlns:smartFilterBar="sap.ui.comp.smartfilterbar" 
+    xmlns:smartTable="sap.ui.comp.smarttable" controllerName="anders.aif.if.overview.controller.App" displayBlock="true" height="100%">
+    <Shell>
+        <App>
+            <Page id="page" title="{i18n>TITLE}" showHeader="true" enableScrolling="true" class="sapUiContentPadding">
+ <!--                <subHeader>
+                    <OverflowToolbar >
+                        <content>
+                            <Label text="{i18n>uname}" labelFor="UNAME" width="10%">
+                                <layoutData>
+                                    <OverflowToolbarLayoutData shrinkable="true" minWidth="5%"/>
+                                </layoutData>
+                            </Label>
+                            <Input id="UNAME" required="true" type="Text" placeholder="{i18n>uname}" width="10%">
+                                <layoutData>
+                                    <OverflowToolbarLayoutData shrinkable="true" minWidth="20px"/>
+                                </layoutData>
+                            </Input>
+                            <ToolbarSpacer/>
+                            <Label text="{i18n>datetime_from}" labelFor="DTFROM" width="10%">
+                                <layoutData>
+                                    <OverflowToolbarLayoutData shrinkable="true" minWidth="20px"/>
+                                </layoutData>
+                            </Label>
+                            <DateTimePicker id="DTFROM" UTC="true" required="true" placeholder="{i18n>datetime_from}" width="10%">
+                                <layoutData>
+                                    <OverflowToolbarLayoutData shrinkable="true" minWidth="30px"/>
+                                </layoutData>
+                            </DateTimePicker>
+                            <ToolbarSpacer/>
+                            <Label text="{i18n>datetime_to}" labelFor="DTTO" width="10%">
+                                <layoutData>
+                                    <OverflowToolbarLayoutData shrinkable="true" minWidth="20px"/>
+                                </layoutData>
+                            </Label>
+                            <DateTimePicker id="DTTO" UTC="true" required="true" placeholder="{i18n>datetime_to}" width="10%">
+                                <layoutData>
+                                    <OverflowToolbarLayoutData shrinkable="true" minWidth="30px"/>
+                                </layoutData>
+                            </DateTimePicker>
+                            <ToolbarSpacer/>
+                            <Button text="{i18n>GetStatic}" type="Emphasized" press="onGetSta">
+                                <layoutData>
+                                    <OverflowToolbarLayoutData shrinkable="true" minWidth="20px"/>
+                                </layoutData>
+                            </Button>
+                        </content>
+                    </OverflowToolbar>
+                </subHeader> -->
+                <content>
+
+                    <smartFilterBar:SmartFilterBar id="smartFilterBar" entitySet="IFStatsSet" search="onSearch">
+                        <smartFilterBar:controlConfiguration>
+                            <smartFilterBar:ControlConfiguration key="Namespace" visibleInAdvancedArea="true" preventInitialDataFetchInValueHelpDialog="false">
+                            </smartFilterBar:ControlConfiguration>
+                        </smartFilterBar:controlConfiguration>
+                    </smartFilterBar:SmartFilterBar> 
+                                <smartTable:SmartTable id="IFSTA" smartFilterId="smartFilterBar" tableType="ResponsiveTable" editable="false" entitySet="IFStatsSet" 
+
+                      useVariantManagement="false" useTablePersonalisation="false" header="IFStatistics" showRowCount="true" useExportToExcel="false" enableAutoBinding="false">
+                    </smartTable:SmartTable>
+
+                </content>
+            </Page>
+        </App>
+    </Shell>
+</mvc:View>
